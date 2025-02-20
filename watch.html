@@ -29,51 +29,49 @@
   </style>
 </head>
 <body>
-  <div class="iframe-container" id="videoContainer">
-    <!-- The selected iframe will be injected here -->
-  </div>
+<div class="iframe-container" id="videoContainer">
+  <!-- The selected iframe will be injected here -->
+</div>
 
-  <script>
-    // Function to read URL query parameters
-    function getParameterByName(name, url = window.location.href) {
-      name = name.replace(/[\[\]]/g, '\\$&');
-      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-      const results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
+<script>
+  // Function to read URL query parameters
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
 
-    // Get the 'stream' parameter from the URL
-    const stream = getParameterByName('stream');
-    let src = '';
+  // Get the 'stream' parameter from the URL
+  const stream = getParameterByName('stream');
+  let src = '';
 
-    // Determine which video source to load based on the parameter
-    if (stream === 'stream-9') {
-      src = 'https://thedaddy.to/embed/stream-153.php';
-    } else if (stream === 'stream-435') {
-      src = 'https://thedaddy.to/embed/stream-435.php';
-    } else {
-      // Default to stream 9 if parameter is missing or unrecognized
-      src = 'https://thedaddy.to/embed/stream-153.php';
-    }
+  // Determine which video source to load based on the parameter
+  if (stream === 'stream-9') {
+    src = 'https://thedaddy.to/embed/stream-153.php';
+  } else if (stream === 'stream-435') {
+    src = 'https://thedaddy.to/embed/stream-435.php';
+  } else {
+    // Default to stream 9 if parameter is missing or unrecognized
+    src = 'https://thedaddy.to/embed/stream-153.php';
+  }
 
-    // Create the iframe element
-    const iframe = document.createElement('iframe');
-    iframe.className = 'video responsive';
-    iframe.setAttribute('marginheight', '0');
-    iframe.setAttribute('marginwidth', '0');
-    iframe.setAttribute('src', src);
-    iframe.setAttribute('name', 'iframe_a');
-    iframe.setAttribute('scrolling', 'no');
-    iframe.setAttribute('allowfullscreen', 'yes');
-    iframe.setAttribute('frameborder', '0');
-    iframe.innerText = 'Your Browser Does not Support Iframes';
+  // Create the iframe element
+  const iframe = document.createElement('iframe');
+  iframe.className = 'video responsive';
+  iframe.setAttribute('marginheight', '0');
+  iframe.setAttribute('marginwidth', '0');
+  iframe.setAttribute('src', src);
+  iframe.setAttribute('name', 'iframe_a');
+  iframe.setAttribute('scrolling', 'no');
+  iframe.setAttribute('allowfullscreen', 'yes');
+  iframe.setAttribute('frameborder', '0');
+  iframe.innerText = 'Your Browser Does not Support Iframes';
 
-    // Insert the iframe into the container
-    document.getElementById('videoContainer').appendChild(iframe);
-  </script>
+  // Insert the iframe into the container
+  document.getElementById('videoContainer').appendChild(iframe);
+</script>
 </body>
 </html>
-
-
