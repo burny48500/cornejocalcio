@@ -2,37 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Ensures proper scaling on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Select a Video Stream</title>
+  <title>Your Video Page</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 20px;
-      text-align: center;
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .video-link {
-      display: block;
-      padding: 15px;
-      margin: 10px auto;
-      width: 80%;
-      max-width: 400px;
-      background-color: #007BFF;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+
+    /* Responsive container to maintain aspect ratio (16:9) */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* (9 / 16)*100 */
+      height: 0;
+      overflow: hidden;
     }
-    .video-link:hover {
-      background-color: #0056b3;
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
   </style>
 </head>
 <body>
-  <h1>Select a Video to Watch</h1>
-  <a href="watch.html?stream=stream-435" class="video-link">Movistar Liga De Campeones</a>
-  <a href="watch.html?stream=stream-153" class="video-link">Movistar Liga De Campeones 3</a>
-  <!-- Add more links as needed -->
+  <!-- Responsive iframe container -->
+  <div class="iframe-container">
+    <iframe 
+      class="video responsive" 
+      marginheight="0" 
+      marginwidth="0" 
+      src="https://thedaddy.to/embed/stream-9.php" 
+      name="iframe_a" 
+      scrolling="no" 
+      allowfullscreen="yes" 
+      sandbox="allow-scripts allow-same-origin">
+      Your Browser Does Not Support Iframes
+    </iframe>
+  </div>
 </body>
 </html>
-
